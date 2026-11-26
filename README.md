@@ -1,6 +1,6 @@
 # สายด่วน THAILAND
 
-สายด่วน THAILAND เป็นสมุดรายชื่อเบอร์ติดต่อภาษาไทยสำหรับการศึกษา พัฒนาด้วย Flutter และ Dart ผู้ใช้เลือกหมวดและแตะเบอร์เพื่อส่งต่อไปยังแอปโทรศัพท์ของอุปกรณ์ได้ แอปนี้เป็นผลงานเพื่อการศึกษาและไม่มีสถานะเป็นบริการทางการ
+สายด่วน THAILAND เป็นสมุดรายชื่อเบอร์ติดต่อภาษาไทยเพื่อการศึกษา พัฒนาด้วย Flutter และ Dart ผู้ใช้เลือกหมวดแล้วแตะรายการเพื่อเปิดหมายเลขในแอปโทรศัพท์ของอุปกรณ์
 
 ## ฟังก์ชันการทำงาน
 
@@ -53,7 +53,7 @@
 
 ## การติดตั้งและใช้งาน
 
-ใช้ Flutter 3.50 และ Dart 3.14 หรือชุด SDK ที่เข้ากับข้อกำหนดใน `pubspec.yaml`
+ใช้ Flutter SDK ที่รองรับ Dart `^3.14.0` ตาม `pubspec.yaml` เวอร์ชันที่ใช้ทดสอบคือ Flutter 3.50 ติดตั้ง Chrome แล้วรันคำสั่งจากโฟลเดอร์โปรเจกต์
 
 ```sh
 flutter pub get
@@ -64,19 +64,32 @@ flutter run -d chrome
 
 ## การทดสอบและข้อจำกัด
 
-- `dart format` จัดรูปแบบครบ และ `flutter analyze` รายงานว่าไม่พบปัญหา
-- `flutter test` ผ่าน 5 ชุด ครอบคลุมข้อมูล 43 รายการ Splash/Navigation/About และการส่ง `tel:` แบบจำลอง รวมถึงกรณีเปิดไม่ได้
-- Web build เปิดใน Chrome Headless และตรวจ UI ที่ 440 × 956, 430 × 932 และ 320 × 568 logical pixels
-- Android สร้าง debug APK สำเร็จและตรวจชื่อแอปกับไอคอนใน APK แล้ว
-- Android Emulator ยังไม่ได้ติดตั้งหรือเปิดแอป
-- iOS มีโครงโปรเจกต์และตรวจไฟล์ไอคอนแล้ว ยังไม่ได้ build หรือรัน
-- ยังไม่ได้ทดสอบบนอุปกรณ์จริง
-- หมายเลขทั้งหมดมาจากโจทย์การศึกษาและยังไม่ได้ตรวจสอบความเป็นปัจจุบัน การทดสอบใช้ตัวจำลองตัวเปิดลิงก์และไม่มีการโทรออกจริง บน Web การเปิดแอปโทรศัพท์ขึ้นกับเบราว์เซอร์และแอปที่อุปกรณ์รองรับ
-- หน้าผู้จัดทำแสดงชื่อบัญชีและข้อความแทนข้อมูลส่วนบุคคลตามแนวทางความเป็นส่วนตัวของโครงการ
+> หมายเลขโทรศัพท์อ้างอิงจากโจทย์การศึกษาและยังไม่ได้ยืนยันความเป็นปัจจุบัน แอปนี้จัดทำเพื่อการศึกษาและไม่มีสถานะเป็นบริการทางการ
+
+| รายการ | ผล |
+| --- | --- |
+| `flutter analyze` | ผ่านโดยไม่พบปัญหา |
+| `flutter test` | ผ่าน 5 กรณี ครอบคลุมข้อมูล 43 รายการ การนำทาง หน้าผู้จัดทำ และการส่ง `tel:` แบบจำลอง รวมถึงกรณีเปิดไม่ได้ |
+| Web build | สร้างสำเร็จ |
+| Web runtime | ตรวจ UI ใน Chrome Headless ที่ 440 × 956, 430 × 932 และ 320 × 568 logical pixels |
+| Android build | สร้าง debug APK สำเร็จและตรวจชื่อแอปกับไอคอนใน APK |
+| Android runtime | ยังไม่ได้ติดตั้งหรือรันแอปบน Emulator หรืออุปกรณ์จริง |
+| iOS | ตรวจไฟล์ไอคอนแล้ว ผล Build และการรันยังไม่ได้ทดสอบ |
+
+- ชุดทดสอบจำลองการส่งเบอร์โดยไม่มีการเปิด Dialer จริงหรือโทรออก บน Web การเปิดแอปโทรศัพท์ขึ้นอยู่กับเบราว์เซอร์และแอปที่อุปกรณ์รองรับ
+- หน้าผู้จัดทำแสดงชื่อบัญชีและภาพ Avatar โดยใช้ข้อความแทนข้อมูลส่วนบุคคล เช่น ชื่อจริง รหัสนักศึกษา และอีเมล
 
 ## เครดิตและสิทธิ์การใช้งาน
 
-- **สื่อการเรียนและแบบอ้างอิง** ข้อกำหนด ภาพอ้างอิง และชุดทรัพยากรมาจากอาจารย์ผู้สอนรายวิชาการพัฒนาโปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่ มหาวิทยาลัยเอเชียอาคเนย์ อาจารย์ตอบว่า “จัดได้เลย” เมื่อวันที่ 26 พฤศจิกายน 2569 สำหรับการใช้ทรัพยากรที่อาจารย์จัดให้เพื่อส่งงานในรายวิชา อ้างอิง Lecture 07, 09 และ 10 และ [Figma ของรายวิชา](https://www.figma.com/design/sadTijq8cG1Mi6a8hu87fs/Mobile-App--flutter_thai_hotline_app?node-id=7007-158)
-- **ฟอนต์และแพ็กเกจโอเพนซอร์ส** Kanit โดย The Kanit Project Authors ใช้ SIL Open Font License 1.1 และมี [ไฟล์สัญญาอนุญาต](assets/fonts/OFL.txt) ในโปรเจกต์ Flutter, Dart, Material UI, URL Launcher และ Flutter Lints ใช้ BSD 3-Clause ส่วน Flutter Launcher Icons และตัวแพ็กเกจ Font Awesome Flutter ใช้ MIT โดยไอคอน Font Awesome Free ใช้ CC BY 4.0 และไฟล์ฟอนต์ใช้ SIL OFL 1.1 ดูรายละเอียดที่ [Flutter](https://github.com/flutter/flutter/blob/master/LICENSE), [Dart](https://github.com/dart-lang/sdk/blob/main/LICENSE), [Material UI](https://pub.dev/packages/material_ui/license), [URL Launcher](https://pub.dev/packages/url_launcher/license), [Flutter Lints](https://pub.dev/packages/flutter_lints/license), [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons/license), [Font Awesome Flutter](https://pub.dev/packages/font_awesome_flutter/license) และ [Font Awesome Free](https://fontawesome.com/license/free)
-- **ทรัพยากรและเครื่องหมายการค้าของบุคคลที่สาม** ตรามหาวิทยาลัย โลโก้หน่วยงานและธนาคาร แบนเนอร์ ไอคอน และภาพ Avatar การ์ตูนมาจากชุดทรัพยากรที่อาจารย์จัดให้เพื่อส่งงาน สิทธิ์ในเครื่องหมายการค้าเป็นของเจ้าของแต่ละราย ผู้สร้างและเงื่อนไขเผยแพร่ต่อของ Avatar และภาพประกอบยังไม่มีหลักฐานยืนยันจากเจ้าของสิทธิ์
+### ทรัพยากรจากอาจารย์และ Figma
 
+ข้อกำหนด ภาพอ้างอิง และชุด Resources มาจากรายวิชาการพัฒนาโปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่ มหาวิทยาลัยเอเชียอาคเนย์ อ้างอิง Lecture 07, 09 และ 10 และ [Figma ของรายวิชา](https://www.figma.com/design/sadTijq8cG1Mi6a8hu87fs/Mobile-App--flutter_thai_hotline_app?node-id=7007-158)
+
+### ฟอนต์ แพ็กเกจ และสัญญาอนุญาตโอเพนซอร์ส
+
+- Kanit โดย The Kanit Project Authors ใช้ SIL Open Font License 1.1 [ไฟล์สัญญาอนุญาต](assets/fonts/OFL.txt)
+- Flutter, Dart, Material UI, URL Launcher และ Flutter Lints ใช้ BSD 3-Clause ส่วน Flutter Launcher Icons และตัวแพ็กเกจ Font Awesome Flutter ใช้ MIT โดยไอคอน Font Awesome Free ใช้ CC BY 4.0 และไฟล์ฟอนต์ใช้ SIL OFL 1.1 ดูรายละเอียดที่ [Flutter](https://github.com/flutter/flutter/blob/master/LICENSE), [Dart](https://github.com/dart-lang/sdk/blob/main/LICENSE), [Material UI](https://pub.dev/packages/material_ui/license), [URL Launcher](https://pub.dev/packages/url_launcher/license), [Flutter Lints](https://pub.dev/packages/flutter_lints/license), [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons/license), [Font Awesome Flutter](https://pub.dev/packages/font_awesome_flutter/license) และ [Font Awesome Free](https://fontawesome.com/license/free)
+
+### ทรัพยากรและเครื่องหมายการค้าของบุคคลที่สาม
+
+ตรามหาวิทยาลัย โลโก้หน่วยงานและธนาคาร แบนเนอร์ ไอคอน และ Avatar การ์ตูนมาจากชุด Resources ของรายวิชาและใช้เพื่อการศึกษา สิทธิ์ในเครื่องหมายการค้าเป็นของเจ้าของแต่ละราย ผู้สร้างและสิทธิ์เผยแพร่ซ้ำของ Avatar และภาพประกอบยังไม่ได้รับการยืนยัน
