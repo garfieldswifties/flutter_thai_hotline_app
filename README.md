@@ -83,7 +83,7 @@ flutter run -d chrome
 
 ### ทรัพยากรจากอาจารย์และ Figma
 
-ข้อกำหนด ภาพอ้างอิง และชุด Resources มาจากรายวิชาการพัฒนาโปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่ มหาวิทยาลัยเอเชียอาคเนย์ อ้างอิง Lecture 07, 09 และ 10 และ [Figma ของรายวิชา](https://www.figma.com/design/sadTijq8cG1Mi6a8hu87fs/Mobile-App--flutter_thai_hotline_app?node-id=7007-158)
+หน้าจออ้างอิงแบบใน Figma ส่วนข้อมูลและภาพประกอบมาจากชุดทรัพยากรที่อาจารย์จัดเตรียมให้สำหรับรายวิชาการพัฒนาโปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่ มหาวิทยาลัยเอเชียอาคเนย์ [Figma ของรายวิชา](https://www.figma.com/design/sadTijq8cG1Mi6a8hu87fs/Mobile-App--flutter_thai_hotline_app?node-id=7007-158)
 
 ### ฟอนต์ แพ็กเกจ และสัญญาอนุญาตโอเพนซอร์ส
 
